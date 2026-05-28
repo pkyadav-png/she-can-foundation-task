@@ -1,0 +1,473 @@
+/* --- 1. CSS VARIABLES & RESET --- */
+:root {
+    --bg-color: #fcfbfa;       /* Off-white premium background */
+    --text-main: #1a1a1a;      /* Deep dark grey for premium typography */
+    --text-muted: #606060;     /* Soft grey for paragraph */
+    --accent: #8b5cf6;         /* Modern soft purple/violet accent */
+    --accent-light: #f3e8ff;   /* Light violet tinted background */
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Custom Selection Color */
+::selection {
+    background-color: var(--accent-light);
+    color: var(--accent);
+}
+
+/* --- 2. GLOBAL ELEMENTS & CURSOR --- */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+/* --- 3. NAVBAR --- */
+.navbar {
+    width: 100%;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(252, 251, 250, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Buttons */
+.cta-btn, .primary-btn {
+    text-decoration: none;
+    background-color: var(--text-main);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-btn:hover, .primary-btn:hover {
+    background-color: var(--accent);
+}
+
+.secondary-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--text-main);
+    padding-bottom: 4px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.secondary-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* --- 4. HERO SECTION --- */
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px 6% 80px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 55%;
+}
+
+.hero-heading {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero-heading .anim-line {
+    display: block;
+    overflow: hidden;
+}
+
+.hero-subtext {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 85%;
+}
+
+.hero-image-container {
+    width: 40%;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- 5. ABOUT SECTION --- */
+.about-section {
+    width: 100%;
+    padding: 120px 6%;
+    background-color: #f5f3ef;
+}
+
+.about-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-left {
+    max-width: 50%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.section-title.central {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.stats-container {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-card {
+    background: var(--bg-color);
+    padding: 40px 30px;
+    border-radius: 20px;
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* --- 6. PILLARS SECTION --- */
+.pillars-section {
+    width: 100%;
+    padding: 120px 6%;
+}
+
+.pillars-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.pillar-card {
+    flex: 1;
+    background-color: var(--bg-color);
+    padding: 50px 40px;
+    border-radius: 24px;
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.pillar-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.pillar-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.pillar-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- 7. JOIN US SECTION --- */
+.join-section {
+    width: 100%;
+    padding: 100px 6%;
+}
+
+.join-box {
+    width: 100%;
+    background-color: var(--accent-light);
+    padding: 80px 40px;
+    border-radius: 32px;
+    text-align: center;
+}
+
+.join-box h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.join-box p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+/* --- 8. FOOTER --- */
+.main-footer {
+    width: 100%;
+    padding: 40px 6%;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-socials a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: var(--accent);
+}
+
+
+
+
+/* --- 9. RESPONSIVE DESIGN (MEDIA QUERIES) --- */
+
+/* For Tablets and Smaller Laptops (Max width: 1024px) */
+@media (max-width: 1024px) {
+    .hero-heading {
+        font-size: 3.2rem;
+    }
+    
+    .about-grid {
+        gap: 40px;
+    }
+    
+    .pillar-card {
+        padding: 40px 25px;
+    }
+}
+
+/* For Mobile Devices (Max width: 768px) */
+@media (max-width: 768px) {
+    /* Custom Cursor mobile par hide karna better hota hai touch experience ke liye */
+    .custom-cursor {
+        display: none !important;
+    }
+
+    /* Navbar adjustment */
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .nav-links {
+        display: none; /* Mobile menu hidden by default for clean look, ya fir wrap ho jayega */
+    }
+
+    /* Hero Section - Single Column Layout */
+    .hero-section {
+        flex-direction: column-reverse; /* Image pehle ya text baad me */
+        padding: 120px 5% 60px 5%;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-heading {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtext {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        height: 350px; /* Mobile par height thodi kam */
+    }
+
+    /* About Section - Stacked Layout */
+    .about-section {
+        padding: 80px 5%;
+    }
+
+    .about-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .about-left {
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .stats-container {
+        width: 100%;
+        flex-direction: column; /* Stats cards ek ke neeche ek */
+        gap: 20px;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+
+    /* Pillars Section - Stacked Cards */
+    .pillars-section {
+        padding: 80px 5%;
+    }
+
+    .section-title.central {
+        margin-bottom: 40px;
+    }
+
+    .pillars-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Join Section */
+    .join-section {
+        padding: 60px 5%;
+    }
+
+    .join-box {
+        padding: 50px 20px;
+    }
+
+    .join-box h2 {
+        font-size: 2rem;
+    }
+
+    /* Footer */
+    .main-footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 30px 5%;
+    }
+}
