@@ -44,3 +44,12 @@ A premium, fully responsive single-page website built as part of the Web Develop
 ├── style.css         # Custom styling variables, components, and media queries
 ├── script.js        # Smooth scrolling initialization & GSAP logic
 └── Image iconnn.jpg  # Asset file used in the workspace
+
+
+🧑‍💻 Author
+
+Name: Pappu Kumar (PK Yadav)
+
+Role: Frontend / Full-Stack Web Developer
+
+GitHub: @pkyadav-png
