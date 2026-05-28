@@ -48,8 +48,6 @@ A premium, fully responsive single-page website built as part of the Web Develop
 
 🧑‍💻 Author
 
-Name: Pappu Kumar (PK Yadav)
+Name: Pappu Kumar 
 
 Role: Frontend / Full-Stack Web Developer
-
-GitHub: @pkyadav-png
